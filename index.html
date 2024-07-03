@@ -1,19 +1,233 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <title>Welcome To My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        
+       .calculator {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+       .calculator h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+       .form-group {
+            margin-bottom: 10px;
+        }
+        
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: right;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+       .btn {
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+       .btn-primary {
+            background-color: #337ab7;
+            color: #fff;
+        }
+        
+       .btn-primary:hover {
+            background-color: #23527c;
+        }
+        
+       .btn-danger {
+            background-color: #d9534f;
+            color: #fff;
+        }
+        
+       .btn-danger:hover {
+            background-color: #c9302c;
+        }
+        
+       .btn-success {
+            background-color: #5cb85c;
+            color: #fff;
+        }
+        
+       .btn-success:hover {
+            background-color: #449d44;
+        }
+    </style>
 </head>
 <body>
-  <header>
-   <h1>Welcome to My Website</h1>
-  </header>
-  <nav>
-   <ul>
-    <li><a href="src/upload.html">Upload Movie</a></li>
-   </ul>
-  </nav>
-  <footer>
-   <p>&copy; 2023 My Website</p>
-  </footer>
+    <div class="calculator">
+        <h2>Online Calculator</h2>
+        <form>
+            <div class="form-group">
+                <input type="text" id="result" class="form-control" readonly>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('7')">7</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('8')">8</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('9')">9</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-danger btn-block" onclick="clearResult()">C</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('4')">4</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('5')">5</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('6')">6</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="performOperation('+')">+</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('1')">1</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('2')">2</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('3')">3</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="performOperation('-')">-</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('0')">0</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="addNumber('.')">.</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="performOperation('*')">x</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" onclick="performOperation('/')">/</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-success btn-block" onclick="calculateResult()">=</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" onclick="calculateSquare()">x²</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-warning btn-block" onclick="calculateSquareRoot()">√x</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        let result = '';
+        let operation = '';
+
+        function addNumber(number) {
+            result += number;
+            document.getElementById('result').value = result;
+        }
+
+        function clearResult() {
+            result = '';
+            document.getElementById('result').value = result;
+        }
+
+        function performOperation(op) {
+            operation = op;
+            result += op;
+            document.getElementById('result').value = result;
+        }
+
+        function calculateResult() {
+            let finalResult = eval(result);
+            document.getElementById('result').value = finalResult;
+            result = finalResult;
+        }
+
+        function calculateSquare() {
+            let num = parseFloat(result);
+            let square = num * num;
+            document.getElementById('result').value = square;
+            result = square;
+        }
+
+        function calculateSquareRoot() {
+            let num = parseFloat(result);
+            let squareRoot = Math.sqrt(num);
+            document.getElementById('result').value = squareRoot;
+            result = squareRoot;
+        }
+
+        // Keyboard Input Handling
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+
+            // Numbers
+            if (key >= '0' && key <= '9') {
+                addNumber(key);
+            }
+            // Decimal Point
+            else if (key === '.') {
+                addNumber('.');
+            }
+            // Operators
+            else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                performOperation(key);
+            }
+            // Equals
+            else if (key === 'Enter') {
+                calculateResult();
+            }
+            // Clear
+            else if (key === 'c' || key === 'C') {
+                clearResult();
+            }
+            // Backspace
+            else if (key === 'Backspace') {
+                result = result.slice(0, -1); // Remove the last character
+                document.getElementById('result').value = result;
+            }
+        });
+    </script>
 </body>
 </html>
