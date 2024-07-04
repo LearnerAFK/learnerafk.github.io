@@ -37,7 +37,7 @@
         <p><i class="fas fa-phone"></i> +918359948604</p>
         <hr>
         <h2 class="section-title">Education</h2>
-        <p class="section-content">Bachelor of Science in Computer Science, APS University </p>
+        <p class="section-content">Bachelor of Science in Computer Science</p>
         <hr>
         <h2 class="section-title">Work Experience</h2>
         <p class="section-content">
@@ -57,30 +57,10 @@
         </p>
     </div>
 
-    <div class="comment-section">
-        <div class="comment-box">
-            <div class="comment-messages" id="comment-messages"></div>
-            <input type="text" id="comment-input" placeholder="Type your comment...">
-            <button onclick="sendComment()">Send</button>
-        </div>
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="new.js"></script>
-    <script>
-        function sendMessage() {
-            const messageInput = document.getElementById('comment-input');
-            const message = messageInput.value;
-
-            if (message.trim() !== '') {
-                const chatMessages = document.getElementById('comment-messages');
-                const newMessage = document.createElement('div');
-                newMessage.textContent = message;
-                chatMessages.appendChild(newMessage);
-
-                messageInput.value = '';
-            }
-        }
-    </script>
 </body>
 
 </html>
