@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="addTopicForm">
+            <h4>Add Topic</h4>
+            <input type="text" id="TopicName" placeholder="Topic Name" required>
+            <input type="url" id="TopicLink" placeholder="Topic Link" required>
+            <button type="submit" class="btn btn-primary">Add Link</button>
+        </form>
+        <h4>Topics :</h4>
+        <ol id="TopicList">
+            <!-- Topic list will be populated dynamically -->
+        </ol>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="new.js"></script>
+</body>
+
+</html>
